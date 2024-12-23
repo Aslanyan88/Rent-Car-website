@@ -6,11 +6,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -41,6 +37,22 @@ const Navbar = () => {
                   Cars
                 </NavigationMenuLink>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                  href="/about"
+                >
+                  About Us
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                  href="/contact"
+                >
+                  Contact Us
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -66,15 +78,12 @@ const Navbar = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
-
               <div className="flex flex-col gap-4 mt-4">
                 <Button variant="ghost" asChild className="justify-start">
                   <Link href="/">Home</Link>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start">
-                  <Link href="/cars">
-                    Cars
-                  </Link>
+                  <Link href="/cars">Cars</Link>
                 </Button>
               </div>
             </SheetContent>

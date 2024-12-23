@@ -1,5 +1,4 @@
-import {CarGrid } from "@/components/cars/car-card";
-import { Footer } from "@/components/layout/footer";
+import { CarGrid } from "@/components/cars/car-card";
 import { ButtonDemo } from "@/components/ui/components_button-demo";
 import { ViewAll } from "@/components/ui/view-all-button";
 import Image from "next/image";
@@ -156,26 +155,22 @@ export default function Home() {
         </div>
       </div>
       <div className="w-[90%] sm:w-[85%] lg:w-3/4 px-4 py-12">
-      <div className="flex flex-col lg:flex-row gap-8 items-center">
-      <CarGrid />
- 
-
+        <div className="flex flex-col lg:flex-row gap-8 items-center">
+          <CarGrid />
         </div>
+      </div>
+      <div className="w-[90%] sm:w-[85%] lg:w-3/4 px-4 py-12">
+        <div className="flex flex-col lg:flex-row gap-8 items-center">
+          <Image
+            src="/facts.svg"
+            alt="Car Rental Process"
+            width={700}
+            height={700}
+            className="w-full h-auto object-cover rounded-2xl"
+            priority
+          />
         </div>
-        <div className="w-[90%] sm:w-[85%] lg:w-3/4 px-4 py-12">
-      <div className="flex flex-col lg:flex-row gap-8 items-center">
-      <Image
-              src="/facts.svg"
-              alt="Car Rental Process"
-              width={700}
-              height={700}
-              className="w-full h-auto object-cover rounded-2xl"
-              priority
-            />
-
-        </div>
-        </div>
-        <Footer />
+      </div>
     </div>
   );
 }
