@@ -20,7 +20,7 @@ export default function TermsOfService() {
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Be at least 21 years of age</li>
-                <li>Possess a valid driver's license</li>
+                <li>possess a valid driving license</li>
                 <li>Have a valid credit card in your name</li>
                 <li>Provide proof of insurance</li>
                 <li>Meet our eligibility requirements</li>

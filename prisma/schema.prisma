@@ -1,0 +1,76 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String  
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Car {
+  id            String    @id @default(cuid())
+  name          String
+  brand         String
+  model         String
+  year          Int
+  type          String
+  description   String    @db.Text
+  dailyRate     Decimal   @db.Decimal(10, 2)
+  status        CarStatus @default(AVAILABLE)
+  mainImage     String
+  images        CarImage[] 
+  locationId    String    
+  location      Location  @relation(fields: [locationId], references: [id])
+  availability  Availability[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model CarImage {
+  id        String   @id @default(cuid())
+  url       String
+  carId     String
+  car       Car      @relation(fields: [carId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@index([carId])
+}
+
+model Location {
+  id        String   @id @default(cuid())
+  name      String
+  address   String
+  city      String
+  state     String
+  zipCode   String
+  cars      Car[]   
+}
+
+model Availability {
+  id          String    @id @default(cuid())
+  carId       String
+  car         Car       @relation(fields: [carId], references: [id])
+  startDate   DateTime
+  endDate     DateTime
+  isAvailable Boolean   @default(true)
+
+  @@index([startDate, endDate])
+  @@index([carId])
+}
+
+enum CarStatus {
+  AVAILABLE
+  RENTED
+  MAINTENANCE
+  RESERVED
+}

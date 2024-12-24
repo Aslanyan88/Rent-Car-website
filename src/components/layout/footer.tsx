@@ -82,9 +82,9 @@ export function Footer() {
               © {new Date().getFullYear()} CarRental. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link href="#" className="hover:text-white transition-colors">Terms</Link>
-              <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
-              <Link href="#" className="hover:text-white transition-colors">Cookies</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
+              <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookies</Link>
             </div>
           </div>
         </div>

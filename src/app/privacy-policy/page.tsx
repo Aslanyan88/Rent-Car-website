@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold">8. Changes to This Policy</h2>
               <p className="text-gray-600">
-                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.
+                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the last updated date.
               </p>
               <p className="text-sm text-gray-500 mt-4">
                 Last updated: December 23, 2024

@@ -8,7 +8,7 @@ export default function Contact() {
         <div className="w-[90%] sm:w-[85%] lg:w-3/4 mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-white/80 max-w-2xl mx-auto">
-            Have questions about our services? We're here to help. Contact us
+            Have questions about our services? We are here to help. Contact us
             through any of the channels below or fill out the form.
           </p>
         </div>
@@ -55,8 +55,7 @@ export default function Contact() {
                 What documents do I need to rent a car?
               </h3>
               <p className="text-gray-600">
-                You will need a valid driver's license, credit card, and proof of
-                insurance.
+              You will need valid ID, credit card, and verification documents.
               </p>
             </div>
 
