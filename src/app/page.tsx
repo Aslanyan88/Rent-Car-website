@@ -1,4 +1,4 @@
-import { CarGrid } from "@/components/cars/car-card";
+import { CarGrid } from "@/components/cars/car-grid";
 import { ButtonDemo } from "@/components/ui/components_button-demo";
 import { ViewAll } from "@/components/ui/view-all-button";
 import Image from "next/image";

@@ -32,6 +32,9 @@ model Car {
   locationId    String    
   location      Location  @relation(fields: [locationId], references: [id])
   availability  Availability[]
+  transmission  String    @default("Automatic")  // "Automatic" or "Manual"
+  fuelType      String    @default("PB 95")      // "PB 95", "Diesel", "Electric"
+  hasAC         Boolean   @default(true)        // Air conditioning
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
