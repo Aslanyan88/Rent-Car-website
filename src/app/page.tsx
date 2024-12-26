@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center w-full">
+    <main className="flex flex-col items-center w-full">
       <div className="w-[90%] sm:w-[85%] lg:w-3/4 min-h-[480px] sm:h-[520px] lg:h-[660px] p-4 bg-[#5937E0] rounded-2xl lg:rounded-3xl relative overflow-hidden">
         <Image
           src="/bg-vector.svg"
@@ -171,6 +171,6 @@ export default function Home() {
           />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

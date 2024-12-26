@@ -6,17 +6,17 @@ async function getAvailableCars() {
   try {
     const cars = await prisma.car.findMany({
       where: {
-        status: "AVAILABLE"
+        status: "AVAILABLE",
       },
       include: {
-        images: true
+        images: true,
       },
-      take: 6,  
+      take: 6,
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
-    
+
     return cars;
   } catch (error) {
     console.error("Failed to fetch cars:", error);
@@ -30,11 +30,12 @@ export async function CarGrid() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto px-4">
       {cars.map((car) => (
-        <CarCard 
+        <CarCard
           key={car.id}
           id={car.id}
           mainImage={car.mainImage}
           carName={`${car.brand} ${car.model}`}
+          year={car.year}
           brand={car.brand}
           model={car.model}
           price={Number(car.dailyRate)}

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
@@ -8,13 +7,6 @@ export function Footer() {
       <div className="w-[90%] sm:w-[85%] lg:w-3/4 mx-auto py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="space-y-4">
-            <Image 
-              src="/logo.svg" 
-              alt="Company Logo" 
-              width={120} 
-              height={40}
-              className="mb-4"
-            />
             <p className="text-sm">
               Experience the ultimate in car rentals with our premium fleet and exceptional service.
             </p>

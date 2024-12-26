@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import CarLink from "./car-link";
+
 interface CarCardProps {
   id: string;
   mainImage: string;
@@ -12,6 +13,7 @@ interface CarCardProps {
   fuel: string;
   type: string;
   hasAC: boolean;
+  year: number; 
   className?: string;
 }
 
@@ -26,18 +28,19 @@ export default function CarCard({
   transmission,
   fuel,
   hasAC,
+  year, 
   className = "",
 }: CarCardProps) {
   return (
     <div
       className={`flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 p-4 ${className}`}
     >
-      <div className="relative w-full h-56 mb-4 group overflow-hidden rounded-xl bg-gray-50 hover:shadow-xl transition-all duration-300">
+      <div className="relative w-full h-64 mb-4 group overflow-hidden rounded-xl bg-gray-50 hover:shadow-xl transition-all duration-300">
         <Image
           src={mainImage}
           alt={carName}
           fill
-          className="object-contain p-4 transition-all duration-300 group-hover:scale-[1.02] "
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           priority
         />
       </div>
@@ -88,11 +91,14 @@ export default function CarCard({
           className="w-full mt-4 border-[#5937E0] text-[#5937E0] hover:bg-[#5937E0] hover:text-white transition-all duration-300"
           asChild
         >
-          <Link
-            href={`/car/${brand.toLowerCase()}-${model.toLowerCase()}-${id}`}
+          <CarLink
+            brand={brand}
+            model={model}
+            year={year}
+            id={id}
           >
             View Details
-          </Link>
+          </CarLink>
         </Button>
       </div>
     </div>
