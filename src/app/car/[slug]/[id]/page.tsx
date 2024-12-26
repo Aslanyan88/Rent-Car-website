@@ -4,14 +4,7 @@ import CarDetails from "@/components/cars/car-details";
 import { notFound } from "next/navigation";
 type tParams = Promise<{ slug: string[],id: string }>;
 
-// interface Params {
-//   slug: string;
-//   id: string;
-// }
 
-// interface PageProps {
-//   params: Params; // Adjusted to expect Params directly
-// }
 
 export default async function CarPage(props:{ params : tParams}) {
   const { id } = await props.params;

@@ -1,7 +1,7 @@
 // app/privacy-policy/page.tsx
 export default function PrivacyPolicy() {
     return (
-      <div className="flex justify-center w-full py-16">
+      <main className="flex justify-center w-full py-16">
         <div className="w-[90%] sm:w-[85%] lg:w-3/4">
           <h1 className="text-3xl sm:text-4xl font-bold mb-8">Privacy Policy</h1>
           
@@ -84,6 +84,6 @@ export default function PrivacyPolicy() {
             </section>
           </div>
         </div>
-      </div>
+      </main>
     );
   }

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function About() {
   return (
-    <div className="flex flex-col items-center w-full">
+    <main className="flex flex-col items-center w-full">
       {/* Hero Section */}
       <div className="w-[90%] sm:w-[85%] lg:w-3/4 py-16 sm:py-20">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -82,6 +82,6 @@ export default function About() {
       </div>
 
      
-    </div>
+    </main>
   );
 }

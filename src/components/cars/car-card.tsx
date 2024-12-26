@@ -1,106 +1,124 @@
+// components/cars/car-card.tsx
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { MapPin } from "lucide-react";
 import CarLink from "./car-link";
+import { CarStatus } from "@prisma/client";
+
+interface Location {
+  id: string;
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+}
 
 interface CarCardProps {
   id: string;
+  name: string;
   mainImage: string;
   carName: string;
-  model: string;
   price: number;
   brand: string;
+  model: string;
+  type: string;
   transmission: string;
   fuel: string;
-  type: string;
   hasAC: boolean;
-  year: number; 
-  className?: string;
+  year: number;
+  status: CarStatus;
+  location: Location;
 }
+
+const statusColors = {
+  AVAILABLE: "bg-green-100 text-green-800",
+  RENTED: "bg-blue-100 text-blue-800",
+  MAINTENANCE: "bg-yellow-100 text-yellow-800",
+  RESERVED: "bg-purple-100 text-purple-800",
+};
+
+const statusLabels = {
+  AVAILABLE: "Available",
+  RENTED: "Rented",
+  MAINTENANCE: "In Maintenance",
+  RESERVED: "Reserved",
+};
 
 export default function CarCard({
   id,
+  name,
   mainImage,
   carName,
   price,
   brand,
-  type,
   model,
+  type,
   transmission,
   fuel,
   hasAC,
-  year, 
-  className = "",
+  year,
+  status,
+  location,
 }: CarCardProps) {
   return (
-    <div
-      className={`flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 p-4 ${className}`}
-    >
-      <div className="relative w-full h-64 mb-4 group overflow-hidden rounded-xl bg-gray-50 hover:shadow-xl transition-all duration-300">
+    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+      <div className="relative h-48 w-full">
         <Image
           src={mainImage}
-          alt={carName}
+          alt={name}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          priority
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-      </div>
-      <div className="space-y-4">
-        <div className="flex justify-between items-center">
-          <h3 className="text-xl font-bold text-gray-800">{carName}</h3>
-          <div className="text-right">
-            <span className="text-2xl font-bold text-[#5937E0]">${price}</span>
-            <span className="text-gray-500 text-sm ml-1">/per day</span>
-          </div>
-        </div>
-
-        <p className="text-gray-500 text-sm font-medium">{type}</p>
-
-        <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-          {transmission && (
-            <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg">
-              <Image
-                src="/automatic.svg"
-                alt="Automatic"
-                width={16}
-                height={16}
-              />
-              <span>{transmission}</span>
-            </div>
-          )}
-          {fuel && (
-            <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg">
-              <Image src="/fuel.svg" alt="Fuel" width={16} height={16} />
-              <span>{fuel}</span>
-            </div>
-          )}
-          {hasAC && (
-            <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg">
-              <Image
-                src="/ac.svg"
-                alt="Air Conditioner"
-                width={16}
-                height={16}
-              />
-              <span>Air Conditioner</span>
-            </div>
-          )}
-        </div>
-
-        <Button
-          variant="outline"
-          className="w-full mt-4 border-[#5937E0] text-[#5937E0] hover:bg-[#5937E0] hover:text-white transition-all duration-300"
-          asChild
-        >
-          <CarLink
-            brand={brand}
-            model={model}
-            year={year}
-            id={id}
+        <div className="absolute top-2 right-2">
+          <Badge 
+            variant="secondary" 
+            className={statusColors[status]}
           >
-            View Details
-          </CarLink>
-        </Button>
+            {statusLabels[status]}
+          </Badge>
+        </div>
       </div>
-    </div>
+      
+      <CardContent className="p-4">
+        <div className="flex justify-between items-start mb-2">
+          <div>
+            <h3 className="text-lg font-semibold">{carName}</h3>
+            <p className="text-sm text-gray-500">{year}</p>
+          </div>
+          <p className="text-lg font-bold">${price}/day</p>
+        </div>
+        
+        <div className="flex flex-wrap gap-2 mb-3">
+          <Badge variant="secondary">{type}</Badge>
+          <Badge variant="secondary">{transmission}</Badge>
+          <Badge variant="secondary">{fuel}</Badge>
+          {hasAC && <Badge variant="secondary">AC</Badge>}
+        </div>
+
+        <div className="flex items-center text-sm text-gray-500">
+          <MapPin className="h-4 w-4 mr-1" />
+          <span>{location.city}, {location.state}</span>
+        </div>
+      </CardContent>
+
+      <Button
+        variant="outline"
+        className="w-full mt-4 border-[#5937E0] text-[#5937E0] hover:bg-[#5937E0] hover:text-white transition-all duration-300"
+        asChild
+      >
+        <CarLink
+          brand={brand}
+          model={model}
+          year={year}
+          id={id}
+        >
+          View Details
+        </CarLink>
+      </Button>
+    </Card>
   );
 }

@@ -6,10 +6,24 @@ import "./globals.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Rent Car",
-  description: "Here you can rent luxury cars",
+  title: {
+    default: "Drive Luxe | Rent Luxury Cars",
+    template: "%s | Drive Luxe"
+  },
+  description: "Experience luxury car rentals with our premium fleet. Easy booking, flexible pickup options, and 24/7 customer support.",
+  icons: {
+    icon: [
+      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo.png', sizes: '32x32', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/logo.png', sizes: '180x180', type: 'image/png' } 
+    ],
+    shortcut: ['/new-favicon.ico'] 
+  },
+  applicationName: "Drive Luxe",
 };
-//grel amen pagi hamar
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,6 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/logo.png" sizes="32x32" /> 
+        <link rel="logo" href="/logo.png" />
+        <meta name="application-name" content="Drive Luxe" />
       </head>
       <body className="flex min-h-screen flex-col">
         <Navbar />

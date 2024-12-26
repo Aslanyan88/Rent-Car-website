@@ -48,7 +48,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="flex justify-center w-full py-16">
+    <main className="flex justify-center w-full py-16">
       <div className="w-[90%] sm:w-[85%] lg:w-3/4">
         <h1 className="text-3xl sm:text-4xl font-bold mb-8">Frequently Asked Questions</h1>
         
@@ -91,6 +91,6 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

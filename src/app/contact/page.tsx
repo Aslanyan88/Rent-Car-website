@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export default function Contact() {
   return (
-    <div className="flex flex-col items-center w-full">
+    <main className="flex flex-col items-center w-full">
       {/* Hero Section */}
       <div className="w-full bg-[#5937E0] text-white py-16">
         <div className="w-[90%] sm:w-[85%] lg:w-3/4 mx-auto text-center">
@@ -90,6 +90,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
